@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}SECTORIQ AI — Weather Forecast{% endblock %}{% block content %}
+<div class="page-title"><div><span class="eyebrow">WEATHER INTELLIGENCE</span><h1>Weather Impact on Customers</h1><p>Weather conditions are used to estimate how customer demand may change on the selected date.</p></div></div>
+<section class="date-selector panel"><div><span class="eyebrow">ANALYSIS DATE</span><h2 id="weatherDateLabel">Today</h2><p id="weatherDateMessage" class="muted">Select a date to calculate weather-driven impact.</p></div><div class="date-pick"><label>Choose date</label><input type="date" id="weatherDate"><button onclick="loadWeatherImpact()">Analyse Weather</button></div></section>
+<section class="weather-grid"><div class="panel current-weather" id="weatherCard"></div><div class="panel impact-card"><span class="eyebrow">CUSTOMER IMPACT</span><strong id="weatherImpactPct">--%</strong><h2 id="weatherImpactDirection">Waiting for weather</h2><p id="weatherImpactText">Select a date inside the live forecast window.</p></div></section>
+<section class="panel"><h2>How weather changes the forecast</h2><div class="weather-factors" id="weatherFactors"></div></section>
+{% endblock %}{% block scripts %}<script src="{{ url_for('static', filename='js/pages.js') }}"></script>{% endblock %}

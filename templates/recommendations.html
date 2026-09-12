@@ -1,0 +1,3 @@
+{% extends "base.html" %}{% block title %}SECTORIQ AI — Recommendations{% endblock %}{% block content %}
+<div class="page-title"><div><span class="eyebrow">DECISION CENTER</span><h1>Decision Center Recommendations</h1><p>Recommendations update with the selected date and demand patterns.</p></div><div class="date-pick"><label>Choose date</label><input type="date" id="recommendationDate"><button onclick="loadRecommendationsPage()">Refresh</button></div></div>
+<div class="recommendation-page" id="allRecommendations"></div>{% endblock %}{% block scripts %}<script src="{{ url_for('static', filename='js/pages.js') }}"></script>{% endblock %}

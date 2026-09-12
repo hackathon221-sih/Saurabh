@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}SECTORIQ AI — Data & Forecast{% endblock %}
+{% block content %}
+<section class="page-title data-hero">
+  <div><span class="eyebrow">DATA INTELLIGENCE</span><h1>Upload Data & Forecast</h1><p>Upload your latest business data and let the forecasting engine learn the demand pattern and project the coming months.</p></div>
+  <div class="engine-badge">⚡ Forecast Engine <span>READY</span></div>
+</section>
+
+<section class="data-upload-grid">
+  <div class="panel upload-panel">
+    <div class="panel-head"><div><h2>Upload Business Data</h2><p class="muted">The uploaded workbook becomes the active dataset for SECTORIQ.</p></div></div>
+    <form id="uploadForm" class="upload-form">
+      <label class="drop-zone" id="dropZone">
+        <input type="file" id="datasetFile" name="file" accept=".xlsx,.xls" hidden>
+        <span class="upload-icon">↑</span>
+        <b id="fileName">Choose an Excel file</b>
+        <small>or drag & drop it here · .xlsx / .xls</small>
+      </label>
+      <button class="primary upload-button" type="submit">Upload & Analyse</button>
+      <div id="uploadMessage" class="upload-message"></div>
+    </form>
+    <div class="requirements-card">
+      <b>Recommended columns</b>
+      <div class="column-chips"><span>Date</span><span>Sector</span><span>Customer_Count</span><span>Revenue</span><span>Purpose</span></div>
+      <small>The engine also understands common alternatives such as Customers, Visitors, Sales and Amount.</small>
+    </div>
+  </div>
+
+  <div class="panel active-dataset-panel">
+    <div class="panel-head"><div><h2>Active Dataset</h2><p class="muted">Current data used by the intelligence engine.</p></div><span class="live-pill">ACTIVE</span></div>
+    <div id="datasetInfo" class="dataset-info"><div><span>Status</span><b>Loading…</b></div></div>
+    <div class="engine-flow"><span>Data</span><i>→</i><span>Pattern Analysis</span><i>→</i><span>Forecast</span><i>→</i><span>Decisions</span></div>
+  </div>
+</section>
+
+<section class="panel forecast-panel">
+  <div class="panel-head"><div><h2>Next-Month Demand Forecast</h2><p class="muted">Projected average daily customers and revenue for each sector.</p></div><select id="forecastMonths"><option value="3">Next 3 months</option><option value="6" selected>Next 6 months</option><option value="12">Next 12 months</option></select></div>
+  <div id="forecastCards" class="forecast-cards"></div>
+  <div class="forecast-table-wrap"><table class="forecast-table"><thead><tr><th>Month</th><th>Overall customers/day</th><th>Hospitality</th><th>Retail</th><th>Financial</th><th>Entertainment</th><th>Financial revenue/day</th></tr></thead><tbody id="forecastRows"></tbody></table></div>
+</section>
+
+<section class="panel how-it-works">
+  <div class="panel-head"><div><h2>How the engine uses your data</h2><p class="muted">The prediction is generated from historical patterns rather than a hardcoded future value.</p></div></div>
+  <div class="engine-steps">
+    <article><span>01</span><b>Read</b><p>Reads dates, sectors, customers and revenue from the uploaded workbook.</p></article>
+    <article><span>02</span><b>Aggregate</b><p>Builds daily and monthly demand patterns and compares sector behaviour.</p></article>
+    <article><span>03</span><b>Learn trend</b><p>Uses recent completed months and a trend model to estimate the next months.</p></article>
+    <article><span>04</span><b>Recommend</b><p>Those forecasts flow into hospitality, retail, finance and entertainment decisions.</p></article>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/data.js') }}?v=8"></script>{% endblock %}

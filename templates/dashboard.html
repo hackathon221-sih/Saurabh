@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}SECTORIQ AI — Dashboard{% endblock %}
+{% block content %}
+<section class="welcome">
+  <div><h1>◈ Welcome back, Team Ctrl Alt Defeat! 👋</h1><p>Here's what's happening across all sectors today.</p></div>
+  <div class="welcome-quote">“From Events to Opportunities,<br><b>powered by Intelligence.</b>”</div>
+</section>
+<section class="event-focus panel">
+  <div><span class="eyebrow">UPCOMING FESTIVAL</span><h2 id="festivalName">Loading…</h2><p id="festivalMeta">Finding the next festival.</p></div>
+  <div class="date-pick"><label>Analyse date</label><input type="date" id="dashboardDate"><button onclick="applyDashboardDate()">Analyse</button></div>
+</section>
+<div class="live-strip"><div id="weatherLive"><b>Loading live weather…</b><span>Connecting to weather service</span></div><span class="live-pill">LIVE</span></div>
+<section class="sector-grid" id="dashboardSectors"></section>
+<section class="two-col calendar-weather-row">
+  <div class="panel calendar-panel">
+    <div class="panel-head"><div><h2>Daily Demand Calendar <span>Customer & sector activity</span></h2><p class="muted">Choose a day to analyse its demand.</p></div><div class="calendar-nav"><button id="prevMonth">‹</button><b id="calendarTitle">September 2026</b><button id="nextMonth">›</button></div></div>
+    <div id="monthAverageBanner" class="month-average-banner"></div>
+    <div class="calendar-week"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+    <div id="demandCalendar" class="excel-calendar"></div><div id="calendarLegend" class="calendar-legend"></div>
+  </div>
+  <div class="panel weather-dashboard-panel">
+    <div class="panel-head"><div><h2>Weather Intelligence <span>New Delhi</span></h2><p class="muted">Current conditions and customer impact.</p></div><span class="live-pill">LIVE</span></div>
+    <div class="weather-main" id="weatherMain"></div><div class="weather-impact-box" id="weatherImpactBox"><span>Selected-date weather impact</span><strong>--</strong><p>Calculating…</p></div><div class="weather-driver-list" id="weatherDrivers"></div>
+  </div>
+</section>
+<section class="panel monthly-section">
+  <div class="panel-head"><div><h2>Monthly Performance</h2><p class="muted">Average daily activity by month across all sectors.</p></div><span class="year-pill">2026</span></div>
+  <div class="monthly-table-wrap"><table class="monthly-table"><thead><tr><th>Month</th><th>Avg Customers</th><th>Avg Hospitality</th><th>Avg Retail</th><th>Avg Financial</th><th>Avg Entertainment</th><th>Avg Hospitality Revenue</th><th>Avg Retail Revenue</th><th>Avg Financial Revenue</th><th>Avg Entertainment Revenue</th></tr></thead><tbody id="monthlyRows"></tbody></table></div>
+</section>
+<section class="two-col top">
+  <div class="panel"><div class="panel-head"><div><h2>Business Snapshot</h2><p class="muted" id="selectedDateLabel"></p></div><button class="link-btn" onclick="goHospitality()">Hospitality Details →</button></div><div class="business-snapshot" id="dateOverview"></div><div class="snapshot-insight" id="snapshotInsight"></div></div>
+  <div class="panel"><div class="panel-head"><div><h2>Event / Festival Impact</h2><p class="muted">Signals behind the selected date.</p></div></div><div class="impact-layout"><div class="impact-score"><div class="score-ring"><b id="impactScore">--</b></div><strong id="impactLevel">--</strong></div><div class="factors" id="impactFactors"></div></div><div class="demand-drivers" id="demandDrivers"></div></div>
+</section>
+<section class="two-col"><div class="panel"><div class="panel-head"><div><h2>Key Recommendations</h2><p class="muted">Operational actions for the selected date.</p></div><a href="/recommendations">View All →</a></div><div id="recommendations"></div></div><div class="panel"><div class="panel-head"><div><h2>Upcoming Events</h2><p class="muted">Next events that can affect demand.</p></div><a href="/events">View All →</a></div><div id="eventsList"></div></div></section>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/dashboard.js') }}?v=8"></script>{% endblock %}

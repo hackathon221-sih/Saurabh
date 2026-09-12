@@ -1,0 +1,4 @@
+{% extends "base.html" %}
+{% block title %}SECTORIQ AI — Settings{% endblock %}
+{% block content %}<div class="page-title"><h1>Settings</h1><p>Configure dashboard preferences and intelligence thresholds.</p></div><div class="panel settings"><label>Default city<input value="New Delhi"></label><label>Impact threshold<select><option>High</option><option>Very High</option></select></label><label>Forecast horizon<select><option>30 Days</option><option>60 Days</option><option>90 Days</option></select></label><button class="primary">Save Settings</button></div>{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/pages.js') }}"></script>{% endblock %}

@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}SECTORIQ AI — Upcoming Events{% endblock %}
+{% block content %}
+<div class="page-title"><span class="eyebrow">EVENT INTELLIGENCE</span><h1>Upcoming Events</h1><p>Events that may influence demand across the four sectors.</p></div>
+<section class="panel upcoming-events-panel"><div class="panel-head"><div><h2>Next Events</h2><p class="muted">Only upcoming events are shown.</p></div></div><div class="page-grid" id="fullEvents"></div></section>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/pages.js') }}?v=8"></script>{% endblock %}

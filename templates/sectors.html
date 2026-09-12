@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block title %}SECTORIQ AI — Sectors{% endblock %}{% block content %}
+<div class="page-title"><div><span class="eyebrow">FOUR-SECTOR INTELLIGENCE</span><h1>Sector Details</h1><p>Pick a date, then open any sector to see the demand analysis.</p></div></div>
+<section class="date-selector panel"><div><span class="eyebrow">DATE / FESTIVAL</span><h2 id="sectorFestival">Loading…</h2><p id="sectorFestivalMeta" class="muted"></p></div><div class="date-pick"><label>Choose date</label><input type="date" id="sectorDate"><button onclick="loadSectors()">Analyse Date</button></div></section>
+<section class="sector-detail-grid"><article class="detail-card hospitality"><div class="detail-icon">🏨</div><h2>Hospitality</h2><strong id="secHospOcc">--%</strong><p>Occupancy / actual demand</p><button onclick="showSector('hospitality')">View Details →</button></article>
+<article class="detail-card retail"><div class="detail-icon">🛒</div><h2>Retail</h2><strong id="secRetailUnits">--</strong><p>Stock planning</p><button onclick="showSector('retail')">View Details →</button></article>
+<article class="detail-card finance"><div class="detail-icon">🏦</div><h2>Financial Services</h2><strong id="secFinanceChange">--</strong><p>Revenue movement</p><button onclick="showSector('finance')">View Details →</button></article>
+<article class="detail-card entertainment"><div class="detail-icon">🎬</div><h2>Entertainment</h2><strong id="secEntAttend">--</strong><p>Attendance</p><button onclick="showSector('entertainment')">View Details →</button></article></section>
+<section class="panel sector-detail-view" id="sectorDetailView"><div class="empty-state">Click <b>View Details</b> on a sector.</div></section>
+{% endblock %}{% block scripts %}<script src="{{ url_for('static', filename='js/pages.js') }}"></script>{% endblock %}
